@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Working with Web API in JS</title>
+
+	<script>
+
+		function myfunction()
+		{
+			const xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET","https://dog.ceo/api/breeds/image/random");
+			xmlhttp.send();
+
+			xmlhttp.onload = function(){
+				const myobj = JSON.parse(this.responseText);
+				document.getElementById("image").src = myobj.message;
+			}
+			
+			
+		}
+
+	</script>
+</head>
+<body>
+
+<img src="" id="image" width="200px" height="200px" />
+
+<p><button onclick="myfunction()">CLICK ME</button></p>
+
+</body>
+</html>
